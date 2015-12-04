@@ -1,0 +1,5 @@
+fix: Corrects error in New Feed Selection test
+
+Corrects an error in the New Feed Selection that ensure when a new feed
+is loaded by the loadFeed that the content actually changes. Also,
+includes minor changes in the code.

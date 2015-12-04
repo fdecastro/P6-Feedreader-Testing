@@ -2,13 +2,16 @@
 
 *By: Felipe De Castro Veras.*   
 Creation date: Nov 29, 2015.   
+**Modified on: Dec 3, 2015.**   
 
 For project 6 of the Front-End Web Developer Course   
 Deadline: Dec 14, 2015.  
 
-For this project a fully functional web-based application that reads RSS feeds was provided.   
-The original developer of this application clearly saw the value in testing, they've included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite.   
+For this project, a fully functional web-based application that reads RSS feeds was provided.   
+The original developer of this application included [Jasmine](http://jasmine.github.io/) and started writing their first test suite. 
 We have finished the original first test suit and added three more, to comply with the project requirements.
+
+The application is initiated by opening the index.html file from any browser that accepts the JavaScript and is able to interpret HTML5.
 
 ## The following where added in `feedreader.js` to the original application: 
 

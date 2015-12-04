@@ -29,10 +29,10 @@ $(function() {
          * and ensures it has a URL defined and that the URL is valid and not empty.
          */
         it('URLs are defined and not empty', function() {
-            for (var feed in allFeeds) {
-                expect(allFeeds[feed].url).toBeDefined();
-                expect(ValidURL(allFeeds[feed].url)).toBe(true);
-            };
+            allFeeds.forEach (function (feed) {
+                expect(feed.url).toBeDefined();
+                expect(ValidURL(feed.url)).toBe(true);
+            });
         });
 
         /*
@@ -40,10 +40,10 @@ $(function() {
          * and ensures it has a name defined and that the name is not empty.
          */
         it('Names are defined and not empty', function() {
-            for (var feed in allFeeds) {
-                expect(allFeeds[feed].name).toBeDefined();
-                expect(allFeeds[feed].name).not.toBe("");
-            };
+            allFeeds.forEach (function (feed) {
+                expect(feed.name).toBeDefined();
+                expect(feed.name).not.toBe('');
+            });
         });
     });
 
@@ -59,8 +59,8 @@ $(function() {
          * The test uses jQuery to select the menu element in the DOM that has the menu-hidden class.
          */
         it('element is hidden by default', function() {
-            var isHidden = $('.menu-hidden');
-            expect(isHidden.length > 0).toBe(true);
+            var isHidden = $('body').hasClass('menu-hidden');
+            expect(isHidden).toBe(true);
         });
 
 
@@ -99,7 +99,7 @@ $(function() {
         var entryLinks;
         beforeEach(function (done){
             loadFeed(0, function () {
-                entryLinks = $('.entry-link');
+                entryLinks = $('.feed .entry');
                 //console.log(entryLinks);
                 done();
             });
@@ -137,12 +137,11 @@ $(function() {
          * This test ensures when a new feed is loaded by the loadFeed
          * function that the content actually changes.
          */
-        it('changes contend in feed container when a new feed is selected', function(done) {
+        it('changes contend in feed container when a new feed is selected', function() {
             //console.log('Second: ',secondEntryLinks[0].innerText);
             //console.log('First: ',firstEntryLinks[0].innerText);
-            expect(firstEntryLinks[0].innerText != secondEntryLinks[0].innerText).toBe(true);
+            expect(firstEntryLinks.html() != secondEntryLinks.html()).toBe(true);
             loadFeed(0);
-            done();
         });
     });
 
